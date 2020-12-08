@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+    QUERY="*:*"
+else
+    QUERY="$1"
+fi
+
+solrdump -server "$SOLR" -q "$QUERY" -fl "$FIELD" | jq ."$FIELD" |
+    fzf-tmux --bind "enter:execute(./edit {})" --preview "./get {}"

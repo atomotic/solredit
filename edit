@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+ARG=$1
+document=$(curl -L -s -G --data-urlencode "q=$FIELD:$ARG" --data-urlencode "rows=1" "$SOLR/select" | jq '.response.docs[0]|del(._version_)')
+id=$(echo "$document" | jq -r .id)
+echo "$document" >"$id.tmp"
+vim "$id.tmp" </dev/tty
+curl "$SOLR/update/json/docs?commit=true" -H "Content-Type: application/json" --data-binary "@$id.tmp"
+rm "$id.tmp"

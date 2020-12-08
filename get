@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+ARG="$1"
+curl -L -s -G --data-urlencode "q=$FIELD:$ARG" --data-urlencode "rows=1" "$SOLR/select" | jq .response.docs[0]
