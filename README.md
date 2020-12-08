@@ -27,4 +27,4 @@ export FZF_DEFAULT_OPTS="--info inline --layout=reverse --border"
 ./solredit (solr query, default to *:*)
 ```
 
-
+[![asciicast](https://asciinema.org/a/378012.svg)](https://asciinema.org/a/378012)
