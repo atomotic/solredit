@@ -15,7 +15,7 @@ go get github.com/ubleipzig/solrdump/...
 ### configuration
 
 tweak env in .envrc (use [direnv](https://direnv.net/))
-```
+```bash
 export SOLR=http://localhost:8983/solr/core
 export FIELD=title
 export FZF_DEFAULT_OPTS="--info inline --layout=reverse --border"
